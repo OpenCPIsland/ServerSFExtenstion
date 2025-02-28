@@ -54,7 +54,7 @@ public class Login extends BaseServerEventHandler {
        String testtt = String.valueOf(testt);
        String[] test2 = DataOfRoom.getJSONObject("data").getString("room").split(testtt);
       // SetRoom = test2[0];
-       test.setProperty("CurrentRoom", test2[0]);
+       test.setProperty("CurrentRoom", DataOfRoom.getJSONObject("data").getString("room"));
        //trace(" upcoming? "+test2[0]);
 
     }

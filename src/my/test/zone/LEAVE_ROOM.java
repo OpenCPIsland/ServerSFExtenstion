@@ -5,6 +5,7 @@
 package my.test.zone;
 
 import com.smartfoxserver.v2.SmartFoxServer;
+import com.smartfoxserver.v2.entities.Room;
 import com.smartfoxserver.v2.entities.User;
 import com.smartfoxserver.v2.entities.Zone;
 import com.smartfoxserver.v2.entities.data.ISFSObject;
@@ -25,6 +26,15 @@ public class LEAVE_ROOM extends BaseClientRequestHandler  {
        trace("zone? zone.logout   :::   " + params.toJson());
        trace("zone? zone.logout   :::   " + Base64.getEncoder().encodeToString(params.toBinary()));
        trace("zone? zone.logout   :::   " + params.getDump(true));
+       
+           Room room = zone.getRoomByName(penguin.getSession().getProperty("CurrentRoom").toString());
+        if (room.getUserList().isEmpty()) {
+            // Delete the room
+           // getApi().emptyRoom(room, true);
+            zone.removeRoom(room);
+            //  getApi().deleteRoom(room, true);
+            trace("Deleted empty room: " + room.getName());
+        }
     }
     
 }
