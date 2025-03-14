@@ -23,7 +23,7 @@ import javax.crypto.NoSuchPaddingException;
 
 /**
  *
- * @author Ryan/Legit's code of webapi
+ * @credtis by Ryan/Legit code of webapi
  */
 public class RSAHelper {
     private Cipher cipher;

@@ -30,13 +30,9 @@ public class GET_SERVER_TIME  extends BaseClientRequestHandler  {
        Timestamp timer =  new Timestamp(System.currentTimeMillis());
         long tsTime2 = timer.getTime();
         SFSObject data1 = new SFSObject();
-        data1.putLong("ct", 0);
+        data1.putLong("ct", params.getLong("ct"));
         data1.putLong("st", tsTime2);
         SmartFoxServer.getInstance().getAPIManager().getSFSApi().sendExtensionResponse("time.get",data1,penguin,room,false);
-        
-        SFSObject data2 = new SFSObject();
-        data2.putUtfString("ek", "null");
-        SmartFoxServer.getInstance().getAPIManager().getSFSApi().sendExtensionResponse("encryption.get",data1,penguin,room,false);
     }
     
 }
